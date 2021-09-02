@@ -285,27 +285,29 @@ in the `index.cshtml` page. Go to `_ViewImports.cshtml` and inject the options w
 In the `index.cshtml` paste the following code at the bottom but inside the parent div to keep the text centered:
 
 ````cshtml
- <strong>Default Culture & UICulture</strong>
- <span>@RequetLocalizationOptions.Value.DefaultRequestCulture.Culture,</span>
- <span>@RequetLocalizationOptions.Value.DefaultRequestCulture.UICulture</span>
+<strong>Default Culture & UICulture</strong>
+<span>@RequetLocalizationOptions.Value.DefaultRequestCulture.Culture,</span>
+<span>@RequetLocalizationOptions.Value.DefaultRequestCulture.UICulture</span>
 
- <br />
+<br />
 
- <strong>Cultures</strong>
- @foreach (var culture in RequetLocalizationOptions.Value.SupportedCultures)
- {
-     <span>@culture,</span>
- }
+<strong>Cultures</strong>
+@if(RequetLocalizationOptions.Value.SupportedCultures is not null)
+@foreach (var culture in RequetLocalizationOptions.Value.SupportedCultures)
+{
+    <span>@culture,</span>
+}
 
- <br />
+<br />
 
- <strong>UICultures</strong>
- @foreach (var uiculture in RequetLocalizationOptions.Value.SupportedUICultures)
- {
-     <span>@uiculture,</span>
- }
+<strong>UICultures</strong>
+@if(RequetLocalizationOptions.Value.SupportedUICultures is not null)
+@foreach (var uiculture in RequetLocalizationOptions.Value.SupportedUICultures)
+{
+    <span>@uiculture,</span>
+}
 
- <br />
+<br />
 ````
 
 The `QueryStringRequestCultureProvider` which allowed you to get the culture from query strings is the first among three providers
@@ -835,17 +837,17 @@ and output in the `Index.cshtml` view the strings as well as self-explanatory de
 
 ````cshtml
 <strong>From SharedLocalizer IndexModel</strong>
-<div>Key :@Model.Message.Name</div>
+<div>Key :@Model.Message?.Name</div>
 <div>Value: @Model.Message</div>
-<div>ResourceNotFound ? @Model.Message.ResourceNotFound</div>
-<div>SearchedLocation: @Model.Message.SearchedLocation</div>
+<div>ResourceNotFound ? @Model.Message?.ResourceNotFound</div>
+<div>SearchedLocation: @Model.Message?.SearchedLocation</div>
 
 <br />
 
-<div>Key : @Model.AnotherMessage.Name</div>
+<div>Key : @Model.AnotherMessage?.Name</div>
 <div>Value: @Model.AnotherMessage</div>
-<div>ResourceNotFound ? @Model.AnotherMessage.ResourceNotFound</div>
-<div>SearchedLocation: @Model.AnotherMessage.SearchedLocation</div>
+<div>ResourceNotFound ? @Model.AnotherMessage?.ResourceNotFound</div>
+<div>SearchedLocation: @Model.AnotherMessage?.SearchedLocation</div>
 
 <br />
 <br />
