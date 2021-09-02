@@ -566,7 +566,7 @@ public class LanguageModel : PageModel
     public string? ReturnUrl { get; set; }
 
     [BindProperty]
-    public string Lang { get; set; }
+    public string? Lang { get; set; }
 
     public void OnGet()
     {
@@ -581,7 +581,9 @@ public class LanguageModel : PageModel
                 Response.Cookies.Append(cookieRequestCultureProvider.CookieName,
                           //CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(lang)),
                           //new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) });
-                          CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(Lang)));
+                          CookieRequestCultureProvider
+                          .MakeCookieValue(new RequestCulture(Lang ??
+                          _requestLocalizationOptions.Value.DefaultRequestCulture.Culture.Name)));
             }
             return LocalRedirect(ReturnUrl ?? "/");
         }
