@@ -579,11 +579,13 @@ public class LanguageModel : PageModel
                 is CookieRequestCultureProvider cookieRequestCultureProvider)
             {
                 Response.Cookies.Append(cookieRequestCultureProvider.CookieName,
-                          //CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(lang)),
-                          //new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) });
-                          CookieRequestCultureProvider
-                          .MakeCookieValue(new RequestCulture(Lang ??
-                          _requestLocalizationOptions.Value.DefaultRequestCulture.Culture.Name)));
+                //CookieRequestCultureProvider
+                //.MakeCookieValue(Lang is not null ? new RequestCulture(Lang) :
+                //_requestLocalizationOptions.Value.DefaultRequestCulture),
+                //new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) });
+                CookieRequestCultureProvider
+                        .MakeCookieValue(Lang is not null ? new RequestCulture(Lang) :
+                        _requestLocalizationOptions.Value.DefaultRequestCulture));
             }
             return LocalRedirect(ReturnUrl ?? "/");
         }
