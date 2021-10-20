@@ -397,7 +397,7 @@ builder.Services.AddRequestLocalization(options =>
 ````
 In particular, we have set `es-ES` (Spanish, Spain) as a culture.
 Now, we set the browser to accept a new language, and our choice precisely is `es-ES`, in addition to `en-GB`.
-There is no need to set this new culture as the default for the browser.
+Depending on the browser, there might be no need to set this new culture as the default for the browser.
 We recommend that you choose a culture in the browser's settings that you know you do not have on the machine.
 
 Just refresh your browser (if the server is already running),
