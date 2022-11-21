@@ -1,4 +1,4 @@
-﻿# Globalization and Localization in ASP.NET 7
+﻿#  Globalization and Localization in ASP.NET 7
 
 In this article you will learn how to configure a ASP.NET 7 website to accept several languages.
 If you are new to localization, we recommend that you follow in order the steps below.
