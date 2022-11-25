@@ -1025,7 +1025,7 @@ builder.Services.AddRazorPages()
 ````
 
 `AddDataAnnotationsLocalization` now adds support for localized `DataAnnotations`
-validation messages through `IStringLocalizer` abstractions and uses the `SharedResources` resource files.
+validation messages through `IStringLocalizer` abstractions and uses the `DataAnnotationResources` resource files.
 
 > [!NOTE]
 > You can use `AddDataAnnotationsLocalization` without `AddViewLocalization`.
@@ -1077,7 +1077,7 @@ public class InputModel
 ````
 
 The `InputModel` class plays the role of a *ViewModel* and is the one we need to provide translations for.
-Add the following key/value pairs to *SharedResources.de-DE.rex*
+Create the resource file `DataAnnotationResources.de-DE.resx` and add the following key/value pairs to *DataAnnotationResources.de-DE.rex*
 
 | Key | Value |
 | --- | ----- |
@@ -1086,7 +1086,7 @@ Add the following key/value pairs to *SharedResources.de-DE.rex*
 | `Username` | `Nutzername` |
 | `Your Username` | `Ihre Benutzername` |
 
-Add the following key/value pairs to *SharedResources.fr-FR.rex*
+Create the resource file `DataAnnotationResources.fr-FR.resx` and add the following key/value pairs to *DataAnnotationResources.fr-FR.rex*
 
 | Key | Value |
 | --- | ----- |
@@ -1129,6 +1129,7 @@ In the *Privacy.cshtml* view, replace all code with:
 <div>SearchedLocation: @PrivacyLocalizer["Hello"].SearchedLocation</div>
 ````
 
+Notice how both the `Privacy.cs` and `Privacy.cshtml` do not invoke explicitely `IStringLocalizer` for the data annotations.
 Run and navigate to the *Privacy* page, edit the input form and trigger the validation messages.
 Change language and try again. You should see something like this:
 
