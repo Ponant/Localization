@@ -1131,7 +1131,8 @@ In the *Privacy.cshtml* view, replace all code with:
 <div>SearchedLocation: @PrivacyLocalizer["Hello"].SearchedLocation</div>
 ````
 
-Notice how both `Privacy.cs` and `Privacy.cshtml` do not explicitely invoke `IStringLocalizer` for the data annotations.
+Notice how both `Privacy.cshtml.cs` and `Privacy.cshtml` do not explicitely invoke `IStringLocalizer` for the data annotations.
+
 Run and navigate to the *Privacy* page, edit the input form and trigger the validation messages.
 Change language and try again. You should see something like this:
 
