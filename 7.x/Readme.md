@@ -997,10 +997,11 @@ which is an extension on `IMvcBuilder` in the same way as `AddViewLocalization`.
 You can localize by using a shared resource file,
 in the same way as we have done in [Localize with IStringLocalizer](#localize-with-istringlocalizer). This is convenient
 because, usually, translations for data annotations are needed in more than one page. We could use the same `SharedResources.cs` and
-put the data annotation localized strings in the corresponding `resx` files we already have. However, in order to keep it more general, we
-will set the resources in files.
+put the data annotation localized strings in the corresponding `.resx` files we already have. However, in order to keep it more general, we
+will set the resources in new files.
 
-Therefore, create a `DataAnnotationResources.cs` file in the *MyResources* folder
+Therefore, create `DataAnnotationResources.cs`, `DataAnnotationResources.fr-FR.resx` and `DataAnnotationResources.de-DE.resx` files and put them
+in the *MyResources* folder. Similarly to `SharedResources.cs`, the class file `DataAnnotationResources.cs` is a dummy class with the root namepsace:
 
 ````csharp
 /// <summary>
@@ -1040,7 +1041,7 @@ otherwise invoke it after the JQuery files, towards the end of the body tag in `
      <partial name="_ValidationScriptsPartial" />
 ````
 
-Put a simple form in the *Privacy* page, both in the view and the code behind. Open *Privacy.cshtml.cs* and replace the entire
+Put a simple form in the *Privacy* page, both in the view and the code behind. Open `Privacy.cshtml.cs` and replace the entire
 code with
 
 ````csharp
@@ -1077,7 +1078,8 @@ public class InputModel
 ````
 
 The `InputModel` class plays the role of a *ViewModel* and is the one we need to provide translations for.
-Create the resource file `DataAnnotationResources.de-DE.resx` and add the following key/value pairs to *DataAnnotationResources.de-DE.rex*
+
+Add the following key/value pairs to *DataAnnotationResources.de-DE.rex*
 
 | Key | Value |
 | --- | ----- |
@@ -1086,7 +1088,7 @@ Create the resource file `DataAnnotationResources.de-DE.resx` and add the follow
 | `Username` | `Nutzername` |
 | `Your Username` | `Ihre Benutzername` |
 
-Create the resource file `DataAnnotationResources.fr-FR.resx` and add the following key/value pairs to *DataAnnotationResources.fr-FR.rex*
+Add the following key/value pairs to *DataAnnotationResources.fr-FR.rex*
 
 | Key | Value |
 | --- | ----- |
@@ -1129,7 +1131,7 @@ In the *Privacy.cshtml* view, replace all code with:
 <div>SearchedLocation: @PrivacyLocalizer["Hello"].SearchedLocation</div>
 ````
 
-Notice how both the `Privacy.cs` and `Privacy.cshtml` do not invoke explicitely `IStringLocalizer` for the data annotations.
+Notice how both `Privacy.cs` and `Privacy.cshtml` do not explicitely invoke `IStringLocalizer` for the data annotations.
 Run and navigate to the *Privacy* page, edit the input form and trigger the validation messages.
 Change language and try again. You should see something like this:
 
