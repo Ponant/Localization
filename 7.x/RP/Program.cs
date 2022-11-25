@@ -34,7 +34,7 @@ builder.Services.AddRazorPages()
         .AddDataAnnotationsLocalization(options =>
         {
             options.DataAnnotationLocalizerProvider = (type, factory) =>
-                factory.Create(typeof(SharedResources));
+                factory.Create(typeof(DataAnnotationResources));
         });
 
 var app = builder.Build();

@@ -996,7 +996,21 @@ messages during form validation by using the `AddDataAnnotationsLocalization` ex
 which is an extension on `IMvcBuilder` in the same way as `AddViewLocalization`.
 You can localize by using a shared resource file,
 in the same way as we have done in [Localize with IStringLocalizer](#localize-with-istringlocalizer). This is convenient
-because, usually, translations for data annotations are needed in more than one page.
+because, usually, translations for data annotations are needed in more than one page. We could use the same `SharedResources.cs` and
+put the data annotation localized strings in the corresponding `resx` files we already have. However, in order to keep it more general, we
+will set the resources in files.
+
+Therefore, create a `DataAnnotationResources.cs` file in the *MyResources* folder
+
+````csharp
+/// <summary>
+/// Object class referring to resources to be used for data annotations
+/// </summary>
+namespace RP;
+public class DataAnnotationResources
+{
+}
+````
 
 In `Program.cs`, use the following:
 
@@ -1006,7 +1020,7 @@ builder.Services.AddRazorPages()
         .AddDataAnnotationsLocalization(options =>
         {
             options.DataAnnotationLocalizerProvider = (type, factory) =>
-                factory.Create(typeof(SharedResources));
+                factory.Create(typeof(DataAnnotationResources));
         });
 ````
 

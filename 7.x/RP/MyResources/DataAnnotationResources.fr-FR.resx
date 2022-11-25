@@ -121,8 +121,20 @@
     <value>Bonjour</value>
     <comment>Double check</comment>
   </data>
+  <data name="Required" xml:space="preserve">
+    <value>Requis</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Pseudo</value>
+  </data>
   <data name="Welcome, {0} {1}" xml:space="preserve">
     <value>Bienvenue {0} {1}</value>
     <comment>Double check</comment>
+  </data>
+  <data name="Your Username" xml:space="preserve">
+    <value>Votre nom d'utilisateur</value>
+  </data>
+  <data name="{1} characters or more" xml:space="preserve">
+    <value>Plus de {1} caractères</value>
   </data>
 </root>
