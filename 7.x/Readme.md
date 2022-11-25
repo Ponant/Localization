@@ -1079,7 +1079,7 @@ public class InputModel
 
 The `InputModel` class plays the role of a *ViewModel* and is the one we need to provide translations for.
 
-Add the following key/value pairs to *DataAnnotationResources.de-DE.rex*
+Add the following key/value pairs to *DataAnnotationResources.de-DE.resx*
 
 | Key | Value |
 | --- | ----- |
@@ -1088,7 +1088,7 @@ Add the following key/value pairs to *DataAnnotationResources.de-DE.rex*
 | `Username` | `Nutzername` |
 | `Your Username` | `Ihre Benutzername` |
 
-Add the following key/value pairs to *DataAnnotationResources.fr-FR.rex*
+Add the following key/value pairs to *DataAnnotationResources.fr-FR.resx*
 
 | Key | Value |
 | --- | ----- |
